@@ -172,32 +172,28 @@ public class ArrCharOps {
         if (str1 == null || str2 == null){
             return -2;
         }
-        if (str1.length() == 0 && str2.length() == 0) return 0;
-        if (str1.length() == 0) return -1;
-        if (str2.length() == 0) return 1;
-
+    
         int minLen = Math.min(str1.length(), str2.length());
 
         for (int i = 0; i < minLen; i++) {
           char c1 = str1.charAt(i);
           char c2 = str2.charAt(i);
             if (c1 != c2) {
-            if (c1 < c2) {
+               if (c1 < c2) {
                 return -1;
-            } else {
+               } else {
                 return 1;
+               }
             }
-        }
         }
     
     if (str1.length() == str2.length()) {
         return 0;
-    }
-        if (str1.length() < str2.length()){
-            return -1;
-        }
-        
+    } else if (str1.length() < str2.length()) {
+        return -1;
+    } else {
         return 1;
+    }
         
     }
 }
