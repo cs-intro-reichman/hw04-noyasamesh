@@ -24,19 +24,25 @@ public class MyString {
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        char c= str2.charAt(0);
-        int start = str1.indexOf(str2.charAt(0));
-        if (start == -1){
-            return false;
-        }
-        if(start +str2.length() > str1.length()){
-            return false;
-        }
-        for (int i=0; i<str2.length(); i++) {
-            if (str1.charAt(start+i) != str2.charAt(i)){
-                return false;
+        if (str2.length() == 0) {
+        return true;
+    }
+    
+    for (int start = 0; start <= str1.length() - str2.length(); start++) {
+        boolean found = true;
+        
+        for (int i = 0; i < str2.length(); i++) {
+            if (str1.charAt(start + i) != str2.charAt(i)) {
+                found = false;
+                break;
             }
         }
-        return true;
+        
+        if (found) {
+            return true;
+        }
+    }
+    
+    return false;
     }
 }
