@@ -135,7 +135,7 @@ public class ArrCharOps {
         for (int i=1; i<arr.length; i++){
             power *= 7;
         }
-        
+
         for (int i = 0; i < arr.length; i++){
         sum += arr[i] * power;
         power /= 7;                     
@@ -175,15 +175,17 @@ public class ArrCharOps {
         int minLen = Math.min(str1.length(), str2.length());
 
         for (int i = 0; i < minLen; i++) {
-        if (str1.charAt(i) != str2.charAt(i)) {
-            char c1 = Character.toLowerCase(str1.charAt(i));
-            char c2 = Character.toLowerCase(str2.charAt(i));
+          char c1 = Character.toLowerCase(str1.charAt(i));
+          char c2 = Character.toLowerCase(str2.charAt(i));
             if (c1 != c2) {
-                if (c1 > c2) return 1;
-            else return -1;
+            if (c1 < c2) {
+                return -1;
+            } else {
+                return 1;
+            }
         }
         }
-    }
+    
     if (str1.length() == str2.length()) {
         return 0;
     }
