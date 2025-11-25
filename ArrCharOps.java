@@ -178,6 +178,16 @@ public class ArrCharOps {
     if (str2 == null) {
         return 1;
     }
+
+    if (str1.length() == 0 && str2.length() == 0) {
+        return 0;
+    }
+    if (str1.length() == 0) {
+        return -1;
+    }
+    if (str2.length() == 0) {
+        return 1;
+    }
     
     int minLen = Math.min(str1.length(), str2.length());
     for (int i = 0; i < minLen; i++) {
