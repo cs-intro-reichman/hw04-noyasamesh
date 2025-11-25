@@ -132,9 +132,13 @@ public class ArrCharOps {
         }
         long sum=0;
         long power = 1;
-        for (int i=0;i<arr.length;i++){
+        for (int i=1; i<arr.length; i++){
             sum+= arr[i] * power;
             power *= 7;
+        }
+        for (int i = 0; i < arr.length; i++){
+        sum += arr[i] * power;
+        power /= 7;                     
         }
         return sum;
     }
@@ -168,25 +172,25 @@ public class ArrCharOps {
         if (str1 == null || str2 == null){
             return -2;
         }
-        if (str1.length() == str2.length()){
-            int i=0;
-            for (int j=0; j< str1.length(); j++){
-               while (str1.charAt(i)!=str2.charAt(i)) {
-                   if (str1.charAt(i)>str2.charAt(i)){
-                     return 1;
-                    }
-                  else {
-                      return -1;
-                    }
-                }
-                i++;
+        int minLen = Math.min(str1.length(), str2.length());
+
+        for (int i = 0; i < minLen; i++) {
+        if (str1.charAt(i) != str2.charAt(i)) {
+            if (str1.charAt(i) > str2.charAt(i)) {
+                return 1;
+            } else {
+                return -1;
             }
-            return 0;
         }
-        if (str1.length() > str2.length()){
-            return 1;
+    }
+    if (str1.length() == str2.length()) {
+        return 0;
+    }
+        if (str1.length() < str2.length()){
+            return -1;
         }
-        else return -1;
+        
+        return 1;
         
     }
 }
