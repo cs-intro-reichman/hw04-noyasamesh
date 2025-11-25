@@ -169,26 +169,11 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        if (str1 == null && str2 == null) {
-        return 0;
-    }
-    if (str1 == null) {
-        return -1;
-    }
-    if (str2 == null) {
-        return 1;
-    }
-
-    if (str1.length() == 0 && str2.length() == 0) {
-        return 0;
-    }
-    if (str1.length() == 0) {
-        return -1;
-    }
-    if (str2.length() == 0) {
-        return 1;
+        if (str1 == null || str2 == null || str1.length() == 0 || str2.length() == 0) {
+        return -2;
     }
     
+    // Compare characters up to the minimum length
     int minLen = Math.min(str1.length(), str2.length());
     for (int i = 0; i < minLen; i++) {
         char c1 = str1.charAt(i);
@@ -202,6 +187,7 @@ public class ArrCharOps {
         }
     }
     
+    // If all characters match, compare lengths
     if (str1.length() == str2.length()) {
         return 0;
     } else if (str1.length() < str2.length()) {
